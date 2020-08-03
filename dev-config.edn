@@ -1,0 +1,12 @@
+{:database-url "jdbc:postgresql://localhost/jardb"
+ :base_url "https://atlantich.xencall.com/***/"
+ :search_url_path "/***/***/"
+ :get_url_path "/***/***/"
+ :username "*****"
+ :password "*****"
+ ;; output-file-path and dest-path have to be same
+ :output-file-path "/Users/username/folder/"
+ ;; output-file-path and dest-path have to be same
+ :dest-path "/Users/username/folder/"
+ :download-tag "processed_"
+ :row-limit 20}

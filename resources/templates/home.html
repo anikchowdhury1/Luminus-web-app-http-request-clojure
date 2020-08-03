@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<meta http-equiv="refresh" content="5"/>
+  <div class="jumbotron">
+    <h1>Welcome to Auto Vendor Campaign Retriever</h1>
+  </div>
+
+   {% for error in errors %}
+   <div class="alert alert-danger">{{error.1|join}}</div>
+   {% endfor %}
+   
+  
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Input File</th>
+          <th>Output File</th>
+        </tr>
+      </thead>
+
+      
+          
+      {% for csv-list in csv-lists %}
+      <tbody>
+        <tr>
+          <td>
+            {{csv-list.date_time}}
+          </td>
+  
+          <td>
+            <a href="/i-file?id={{csv-list.id}}" download="{{csv-list.input_file_name}}">{{csv-list.input_file_name}}</a>
+          </td>
+
+        {% ifequal csv-list.status "processing" %}
+        <td>
+            Processing
+        </td>
+        {% endifequal %}
+  
+        {% ifequal csv-list.status "done" %}
+          <td>
+            <a href="/o-file?id={{csv-list.id}}" download="{{csv-list.output_file_name}}">{{csv-list.output_file_name}}</a>
+          </td>
+        {% endifequal %}
+
+         
+
+
+
+
+        </tr>
+      </tbody>
+      {% endfor %}
+    
+    </table>
+
+  
+
+  
+
+
+{% endblock %}
